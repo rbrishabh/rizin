@@ -335,19 +335,13 @@ EXPECT=<<EOF
 EOF
 RUN
 
-NAME=tf and tfk
+NAME=tf
 FILE==
 CMDS=<<EOF
 tf write
-tfk write
 EOF
 EXPECT=<<EOF
 ssize_t write (int fd, const char * ptr, size_t nbytes);
-func.write.arg.0=int,fd
-func.write.arg.1=const char *,ptr
-func.write.arg.2=size_t,nbytes
-func.write.args=3
-func.write.ret=ssize_t
 EOF
 RUN
 
@@ -360,7 +354,8 @@ td "typedef bool FLAG;"
 tt FLAG
 EOF
 EXPECT=<<EOF
-char
+FILE_NAME = char
+FLAG = bool
 bool
 EOF
 RUN

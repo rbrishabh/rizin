@@ -242,7 +242,7 @@ struct NSString {
 EOF
 RUN
 
-NAME=tc typedef
+NAME=ttc typedef
 FILE==
 CMDS=<<EOF
 td "typedef char *string;"
@@ -256,16 +256,15 @@ RUN
 NAME=ttj typedef
 FILE==
 CMDS=<<EOF
-t-*
 td "typedef char *string;"
-ttj
+ttj string
 EOF
 EXPECT=<<EOF
-{"string":"char *"}
+{"name":"string","type":"char *"}
 EOF
 RUN
 
-NAME=test cmd tsc 
+NAME=test cmd tsc
 FILE=bins/mach0/objc-employee
 CMDS=<<EOF
 .ic*
